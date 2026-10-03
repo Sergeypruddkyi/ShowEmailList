@@ -1,0 +1,38 @@
+# Build outputs
+[Bb]in/
+[Oo]bj/
+dist/
+
+# Runtime data (created next to the exe)
+accounts.json
+accounts.json.bad
+settings.ini
+
+# IDE
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.userprefs
+
+# Build logs / NuGet
+*.binlog
+project.lock.json
+project.assets.json
+*.nuget.props
+*.nuget.targets
+msbuild.log
+msbuild.err
+msbuild.wrn
+
+# OS junk
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# Temporary screenshots
+/shot*.png
+/smoke-shot*.png

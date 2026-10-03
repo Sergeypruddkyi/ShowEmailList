@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>ShowPost</AssemblyName>
+    <RootNamespace>ShowPost</RootNamespace>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>..\assets\ShowPost.ico</ApplicationIcon>
+    <Platforms>AnyCPU;x64</Platforms>
+
+    <!-- Assembly metadata -->
+    <Product>ShowPost</Product>
+    <AssemblyTitle>ShowPost</AssemblyTitle>
+    <Version>0.1.0</Version>
+    <InformationalVersion>0.1</InformationalVersion>
+
+    <!-- Publish defaults for portable self-contained win-x64 -->
+    <RuntimeIdentifier Condition="'$(RuntimeIdentifier)' == '' and '$(Publishing)' == 'true'">win-x64</RuntimeIdentifier>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+
+    <!--
+      Canonical portable output: publish writes the .NET artifacts straight into
+      dist\ShowPost, keeping the folder the user runs in sync with the freshly
+      built EXE/DLL (same layout as the YouTubeDownloader-Net10 reference).
+    -->
+    <PublishDir>$(MSBuildProjectDirectory)\..\dist\ShowPost\</PublishDir>
+
+    <!--
+      Single-file portable release: the whole .NET 10 runtime is packed into
+      ShowPost.exe so it runs on a clean Windows x64 without an installed .NET.
+    -->
+    <PublishSingleFile>true</PublishSingleFile>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+
+    <!--
+      WFO1000: WinForms code-first project (no *.Designer.cs, no Windows Forms Designer usage).
+    -->
+    <NoWarn>$(NoWarn);WFO1000</NoWarn>
+  </PropertyGroup>
+
+</Project>
