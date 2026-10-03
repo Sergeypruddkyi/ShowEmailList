@@ -2,7 +2,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace ShowPost
+namespace ShowEmailList
 {
     // One account block: address on top, password below it, both visually
     // grouped by a single bordered panel. Icon buttons (copy / reveal /
@@ -48,7 +48,7 @@ namespace ShowPost
 
             LoginBox = new TextBox();
             LoginBox.Text = login ?? "";
-            LoginBox.PlaceholderText = "Адрес почты";
+            LoginBox.PlaceholderText = "Email address";
             LoginBox.Font = Theme.Regular;
             Theme.StyleInput(LoginBox);
             LoginBox.TextChanged += delegate { RaiseChanged(); };
@@ -56,7 +56,7 @@ namespace ShowPost
 
             PasswordBox = new TextBox();
             PasswordBox.Text = password ?? "";
-            PasswordBox.PlaceholderText = "Пароль";
+            PasswordBox.PlaceholderText = "Password";
             PasswordBox.Font = Theme.Regular;
             PasswordBox.PasswordChar = '*';
             Theme.StyleInput(PasswordBox);
@@ -65,10 +65,10 @@ namespace ShowPost
 
             _glyphFont = new Font("Segoe MDL2 Assets", 9.5F * Math.Max(1f, scale));
 
-            _copyLoginBtn = MakeButton(GlyphCopy, "Копировать адрес", delegate { CopyText(LoginBox.Text); });
-            _eyeBtn = MakeButton(GlyphShow, "Показать пароль", delegate { ToggleReveal(); });
-            _copyPassBtn = MakeButton(GlyphCopy, "Копировать пароль", delegate { CopyText(PasswordBox.Text); });
-            _deleteBtn = MakeButton(GlyphDelete, "Удалить аккаунт", delegate
+            _copyLoginBtn = MakeButton(GlyphCopy, "Copy email", delegate { CopyText(LoginBox.Text); });
+            _eyeBtn = MakeButton(GlyphShow, "Show password", delegate { ToggleReveal(); });
+            _copyPassBtn = MakeButton(GlyphCopy, "Copy password", delegate { CopyText(PasswordBox.Text); });
+            _deleteBtn = MakeButton(GlyphDelete, "Delete account", delegate
             {
                 EventHandler h = DeleteRequested;
                 if (h != null) h(this, EventArgs.Empty);
@@ -105,7 +105,7 @@ namespace ShowPost
             _revealed = !_revealed;
             PasswordBox.PasswordChar = _revealed ? '\0' : '*';
             _eyeBtn.Text = _revealed ? GlyphHide : GlyphShow;
-            _eyeBtn.AccessibleName = _revealed ? "Скрыть пароль" : "Показать пароль";
+            _eyeBtn.AccessibleName = _revealed ? "Hide password" : "Show password";
         }
 
         private static void CopyText(string text)

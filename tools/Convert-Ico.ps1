@@ -1,8 +1,8 @@
 # Converts the high-res source PNG into a multi-size ICO for ApplicationIcon.
 # Uses only System.Drawing (GDI+), no external tools.
 param(
-    [string]$SourcePng = (Join-Path $PSScriptRoot '..\assets\showpost-icon.png'),
-    [string]$OutIco   = (Join-Path $PSScriptRoot '..\assets\ShowPost.ico')
+    [string]$SourcePng = (Join-Path $PSScriptRoot '..\assets\showemaillist-icon.png'),
+    [string]$OutIco   = (Join-Path $PSScriptRoot '..\assets\ShowEmailList.ico')
 )
 
 Add-Type -AssemblyName System.Drawing

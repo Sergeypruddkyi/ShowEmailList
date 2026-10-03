@@ -6,7 +6,7 @@ using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Windows.Forms;
 
-namespace ShowPost
+namespace ShowEmailList
 {
     public class AccountEntry
     {
@@ -51,7 +51,7 @@ namespace ShowPost
             {
                 // Keep the unreadable file for the user instead of overwriting it.
                 try { File.Move(_path, _path + ".bad", true); } catch { }
-                WarnOnce(ref _loadFailedWarned, "Не удалось прочитать accounts.json:\n" + ex.Message + "\n\nФайл сохранён как accounts.json.bad, список начат с пустого.");
+                WarnOnce(ref _loadFailedWarned, "Failed to read accounts.json:\n" + ex.Message + "\n\nFile saved as accounts.json.bad, starting with an empty list.");
             }
         }
 
@@ -83,7 +83,7 @@ namespace ShowPost
             }
             catch (Exception ex)
             {
-                WarnOnce(ref _saveFailedWarned, "Не удалось сохранить accounts.json:\n" + ex.Message);
+                WarnOnce(ref _saveFailedWarned, "Failed to save accounts.json:\n" + ex.Message);
             }
         }
 
@@ -93,7 +93,7 @@ namespace ShowPost
             warned = true;
             try
             {
-                MessageBox.Show(message, "ShowPost", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(message, "ShowEmailList", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch { }
         }

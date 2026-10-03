@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-namespace ShowPost
+namespace ShowEmailList
 {
     public class MainForm : Form
     {
@@ -35,7 +35,7 @@ namespace ShowPost
         {
             _settings.Load();
             _accounts.Load();
-            Text = "ShowPost";
+            Text = "ShowEmailList";
             try { Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath); }
             catch { }
             FormBorderStyle = FormBorderStyle.None;
@@ -107,7 +107,7 @@ namespace ShowPost
             content.Controls.Add(bottomBar);
 
             addBtn = new Button();
-            addBtn.Text = "Добавить аккаунт";
+            addBtn.Text = "Add account";
             addBtn.Size = new Size(190, 36);
             addBtn.Location = new Point(S(ListSidePad), S(14));
             addBtn.Anchor = AnchorStyles.Left | AnchorStyles.Bottom;
@@ -116,7 +116,7 @@ namespace ShowPost
             bottomBar.Controls.Add(addBtn);
 
             lblCount = new Label();
-            lblCount.Text = "Аккаунтов: 0";
+            lblCount.Text = "Accounts: 0";
             lblCount.ForeColor = Theme.Dim;
             lblCount.AutoSize = true;
             lblCount.BackColor = Theme.Back;
@@ -241,8 +241,8 @@ namespace ShowPost
         {
             int i = _rows.IndexOf(row);
             if (i < 0) return;
-            string chosen = PromptForm.Show(this, "Удаление", "Удалить этот блок аккаунта?", true, "Удалить", "Отмена");
-            if (chosen != "Удалить") return;
+            string chosen = PromptForm.Show(this, "Delete", "Delete this account?", true, "Delete", "Cancel");
+            if (chosen != "Delete") return;
             _rows.RemoveAt(i);
             _accounts.Accounts.RemoveAt(i);
             list.Controls.Remove(row);
@@ -271,7 +271,7 @@ namespace ShowPost
 
         private void UpdateCount()
         {
-            lblCount.Text = "Аккаунтов: " + _rows.Count;
+            lblCount.Text = "Accounts: " + _rows.Count;
         }
 
         private void PositionCount()

@@ -1,7 +1,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace ShowPost
+namespace ShowEmailList
 {
     internal static class Program
     {

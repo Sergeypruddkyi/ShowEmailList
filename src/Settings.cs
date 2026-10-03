@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace ShowPost
+namespace ShowEmailList
 {
     // Simple INI-backed settings store (key=value under a [General] header).
     // Mechanic taken from the YouTubeDownloader-Net10 reference, minus its
@@ -39,7 +39,7 @@ namespace ShowPost
             warned = true;
             try
             {
-                System.Windows.Forms.MessageBox.Show("Failed to " + action + " settings:\n" + ex.Message, "ShowPost", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                System.Windows.Forms.MessageBox.Show("Failed to " + action + " settings:\n" + ex.Message, "ShowEmailList", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
             }
             catch { }
         }

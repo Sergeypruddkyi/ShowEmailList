@@ -2,7 +2,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace ShowPost
+namespace ShowEmailList
 {
     // Dark-styled modal dialog in the spirit of the reference's PromptForm.
     // The dialog sizes itself to its content: the message wraps at a fixed
